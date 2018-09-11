@@ -5,6 +5,7 @@ import cv2
 
 from General.state_machine import getMode
 from General.general_common import States
+from General.gui import Screen
 
 from Control.joystick import Joystick
 from Control.drone_communication import CommandCenter
@@ -14,6 +15,7 @@ from Vision.camera import Camera
 my_joystick=Joystick(0.1,0.1,0.2,0.1) # TODO: read these values from the config file
 my_camera = Camera()
 my_command_center = CommandCenter()
+my_screen = Screen()
 mode=States.IDLE
 
 while mode != States.EXIT:
@@ -30,9 +32,7 @@ while mode != States.EXIT:
 
     time.sleep(0.02)
 
-    print("mode: {}".format(mode))
-    os.system('cls' if os.name == 'nt' else 'clear')
-
+    my_screen.update_mode(mode)
     my_joystick.update_vales()
 
 cv2.destroyAllWindows()
