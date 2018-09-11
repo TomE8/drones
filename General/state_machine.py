@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
-from .general_common import Modes
+from .general_common import States
 from Control.control_common import ButtonIndex
 
 def getMode(mode,my_joystick):
     # ==============================================================
-    if mode == Modes.IDLE:
+    if mode == States.IDLE:
         if my_joystick.get_button_val(ButtonIndex.SIDE_BUTTON) == 1:
-            return Modes.STAND_BY
+            return States.STAND_BY
         elif my_joystick.get_button_val(ButtonIndex.EXIT) == 1:
-            return Modes.STOP_BEFORE_EXIT
+            return States.STOP_BEFORE_EXIT
     # ==============================================================
-    elif mode==Modes.STAND_BY:
+    elif mode==States.STAND_BY:
         if my_joystick.get_button_val(ButtonIndex.TRIGGER) == 1:
-            return Modes.MANUAL_CONTROL
+            return States.MANUAL_CONTROL
         elif my_joystick.get_button_val(ButtonIndex.SIDE_BUTTON) == 1:
-            return Modes.STOP
+            return States.STOP
         elif my_joystick.get_button_val(ButtonIndex.EXIT) == 1:
-            return Modes.STOP_BEFORE_EXIT
+            return States.STOP_BEFORE_EXIT
     # ==============================================================
-    elif mode==Modes.MANUAL_CONTROL:
+    elif mode==States.MANUAL_CONTROL:
         if my_joystick.get_button_val(ButtonIndex.TRIGGER) == 1:
-            return Modes.STOP
+            return States.STOP
         if my_joystick.get_button_val(ButtonIndex.EXIT) == 1:
-            return Modes.STOP_BEFORE_EXIT
+            return States.STOP_BEFORE_EXIT
     # ==============================================================
-    elif mode==Modes.STOP:
-        return Modes.IDLE
+    elif mode==States.STOP:
+        return States.IDLE
     # ==============================================================
-    elif mode == Modes.STOP_BEFORE_EXIT:
-        return Modes.EXIT
+    elif mode == States.STOP_BEFORE_EXIT:
+        return States.EXIT
     return mode

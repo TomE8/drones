@@ -1,4 +1,4 @@
-class Modes():
+class States():
     IDLE = 0
     STAND_BY = 1
     MANUAL_CONTROL = 2
