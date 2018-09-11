@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "playing recived video"
+./camera_tcp_session.py | gst-launch-1.0 fdsrc fd=0 ! h264parse ! avdec_h264 ! xvimagesink sync=false
