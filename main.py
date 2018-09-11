@@ -24,7 +24,7 @@ while mode != States.EXIT:
     image = my_camera.get_image()
     if image is not None:
         cv2.imshow('Video', image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'): # comment
         break
 
     time.sleep(0.02)
