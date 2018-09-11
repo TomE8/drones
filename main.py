@@ -29,7 +29,7 @@ while mode != Modes.EXIT:
 
     time.sleep(0.02)
 
-    print("mode: {}".format(mode))
+    print("mode is this: {}".format(mode))
     os.system('cls' if os.name == 'nt' else 'clear')
 
     my_joystick.update_vales()
