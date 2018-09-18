@@ -5,7 +5,7 @@ import subprocess as sp
 
 class Camera():
     def __init__(self):
-        pipe = sp.Popen(["Vision/camera_tcp_session.py"], shell=True, stdout=sp.PIPE,bufsize=10 ** 8)
+        pipe = sp.Popen(["Camera/camera_tcp_session.py"], shell=True, stdout=sp.PIPE,bufsize=10 ** 8)
         self.pipe2 = sp.Popen(["gst-launch-1.0 fdsrc ! h264parse ! avdec_h264 ! filesink location=/dev/stdout sync=false"],
                          shell=True, stdout=sp.PIPE, stdin=pipe.stdout, bufsize=10 ** 8)
         self.pipe2.stdout.flush()
@@ -21,7 +21,7 @@ class Camera():
         image = numpy.concatenate((image[:, 141:], image[:, :141]), axis=1)
         return image
 
-    def display_video(self): # this method is only for debug
+    def display_video_debug(self): # this method is only for debug
         while True:
             image=self.get_image()
             if image is not None:
