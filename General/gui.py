@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import time
 from tkinter import *
 from .general_common import States
 
