@@ -10,7 +10,7 @@ from General.gui import Screen
 from Control.joystick import Joystick
 from Control.drone_communication import CommandCenter
 
-from Vision.camera import Camera
+from Camera.camera import Camera
 
 my_joystick=Joystick(0.1,0.1,0.2,0.1) # TODO: read these values from the config file
 my_camera = Camera()
