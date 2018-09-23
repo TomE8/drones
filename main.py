@@ -17,12 +17,11 @@ my_camera = Camera()
 my_command_center = CommandCenter()
 my_screen = Screen()
 mode=States.IDLE
-
 while mode != States.EXIT:
     my_joystick.refresh()
 
     mode=getMode(mode,my_joystick)
-    my_command_center.send_command(mode, my_joystick)
+    my_command_center.send_command(mode, my_joystick=my_joystick)
 
     image = my_camera.get_image()
     if image is not None:
@@ -32,6 +31,7 @@ while mode != States.EXIT:
 
     time.sleep(0.02)
 
+    my_camera.update_image()
     my_screen.update_mode(mode)
     my_joystick.update_values()
 

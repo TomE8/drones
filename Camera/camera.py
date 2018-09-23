@@ -9,17 +9,20 @@ class Camera():
         self.pipe2 = sp.Popen(["gst-launch-1.0 fdsrc ! h264parse ! avdec_h264 ! filesink location=/dev/stdout sync=false"],
                          shell=True, stdout=sp.PIPE, stdin=pipe.stdout, bufsize=10 ** 8)
         self.pipe2.stdout.flush()
+        self.update_image()
 
     def get_image(self):
+        return self.image
+
+    def update_image(self):
         while True:
             raw_image = self.pipe2.stdout.read(720 * 1280 * 3)
             if len(raw_image)>=720 * 1280 * 3:
                 break
         raw_image = raw_image[:720 * 1280]
-        image = numpy.fromstring(raw_image, dtype='uint8')
-        image = image.reshape(720, 1280)
-        image = numpy.concatenate((image[:, 141:], image[:, :141]), axis=1)
-        return image
+        self.image = numpy.fromstring(raw_image, dtype='uint8')
+        self.image = self.image.reshape(720, 1280)
+        self.image = numpy.concatenate((self.image[:, 141:], self.image[:, :141]), axis=1)
 
     def display_video_debug(self): # this method is only for debug
         while True:
