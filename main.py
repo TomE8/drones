@@ -36,4 +36,3 @@ while state != States.EXIT:
     my_joystick.update_values()
 
 cv2.destroyAllWindows()
-os.system('cls' if os.name == 'nt' else 'clear')
