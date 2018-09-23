@@ -39,7 +39,7 @@ class Joystick:
     def refresh():
         pygame.event.get()
 
-    def update_vales(self):
+    def update_values(self):
         for button in self.button_list:
             self.prev_button_val[button]=self.joystick.get_button(button)
 
