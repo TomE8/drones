@@ -18,11 +18,11 @@ class Screen():
         self.canvas.pack()
         self.root.update()
 
-    def update_mode(self,mode):
-        for state in self.states_rec:
-            self.canvas.itemconfig(self.states_rec[state], fill="#C2B6BF")
+    def update_state(self, state):
+        for rec in self.states_rec:
+            self.canvas.itemconfig(self.states_rec[rec], fill="#C2B6BF")
         try:
-            self.canvas.itemconfig(self.states_rec[mode], fill='#80FF00')
+            self.canvas.itemconfig(self.states_rec[state], fill='#80FF00')
         except:
             pass
         self.root.update()
