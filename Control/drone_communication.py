@@ -7,7 +7,6 @@ class CommandCenter():
     def __init__(self):
         self.UDP_IP = "172.16.10.1" # TODO: read these values from config file
         self.UDP_PORT = 8080
-        self.BUFFER_SIZE = 1024
         self.sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # UDP
 
     def __send_to_drone(self,up_down, rotate, foward_backwards, left_right, byte6, byte7, byte8, byte9):
