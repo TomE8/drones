@@ -33,7 +33,7 @@ while mode != States.EXIT:
     time.sleep(0.02)
 
     my_screen.update_mode(mode)
-    my_joystick.update_vales()
+    my_joystick.update_values()
 
 cv2.destroyAllWindows()
 os.system('cls' if os.name == 'nt' else 'clear')
