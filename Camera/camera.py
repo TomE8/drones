@@ -2,12 +2,14 @@
 import numpy
 import cv2
 import subprocess as sp
+import os
+import signal
 
 class Camera():
     def __init__(self):
-        pipe = sp.Popen(["Camera/camera_tcp_session.py"], shell=True, stdout=sp.PIPE,bufsize=10 ** 8)
+        self.pipe = sp.Popen(["Camera/camera_tcp_session.py"], shell=True, stdout=sp.PIPE,bufsize=10 ** 8,preexec_fn=os.setsid)
         self.pipe2 = sp.Popen(["gst-launch-1.0 fdsrc ! h264parse ! avdec_h264 ! filesink location=/dev/stdout sync=false"],
-                         shell=True, stdout=sp.PIPE, stdin=pipe.stdout, bufsize=10 ** 8)
+                         shell=True, stdout=sp.PIPE, stdin=self.pipe.stdout, bufsize=10 ** 8,preexec_fn=os.setsid)
         self.pipe2.stdout.flush()
         self.update_image()
 
@@ -32,3 +34,7 @@ class Camera():
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
         cv2.destroyAllWindows()
+
+    def __del__(self):
+        os.killpg(os.getpgid(self.pipe.pid), signal.SIGTERM)
+        os.killpg(os.getpgid(self.pipe2.pid), signal.SIGTERM)
