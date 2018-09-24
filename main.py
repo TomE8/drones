@@ -8,7 +8,7 @@ from General.general_common import States
 from General.gui import Screen
 
 from Control.joystick import Joystick
-from Control.drone_communication import CommandCenter
+from Control.command_center import CommandCenter
 
 from Camera.camera import Camera
 
@@ -21,10 +21,10 @@ while state != States.EXIT:
     my_joystick.refresh()
 
     state=getState(state, my_joystick)
-    my_command_center.send_command(state, my_joystick=my_joystick)
+    my_command_center.perform_action(state, my_joystick=my_joystick)
 
     image = my_camera.get_image()
-    if image is not None:
+    if image is not None: # display the received images from the camera:
         cv2.imshow('Video', image)
         cv2.waitKey(1)
 

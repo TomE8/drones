@@ -14,7 +14,7 @@ class CommandCenter():
         command.extend([255 - sum(command[1:]) % 256])  # check sum
         self.sock.sendto(command, (self.UDP_IP, self.UDP_PORT))
 
-    def send_command(self, state, my_joystick):
+    def perform_action(self, state, my_joystick):
         if state == States.IDLE:
             self.__send_to_drone(0, 63, 64, 63, 144, 16, 16, 0)  # stand by
         elif state == States.STAND_BY:
