@@ -11,7 +11,7 @@ from Control.command_center import CommandCenter
 
 from Camera.camera import Camera
 
-my_joystick=Joystick(0.1,0.1,0.2,0.1) # TODO: read these values from the config file
+my_joystick = Joystick(0.1,0.1,0.2,0.1) # TODO: read these values from the config file
 my_camera = Camera()
 my_command_center = CommandCenter()
 my_screen = Screen()
