@@ -4,11 +4,14 @@ The JJRC elfi+ is 50$ drone with on board RGB camera. The code in the repository
 1) opencv
 2) numpy
 3) gstreamer
-4) pygame (for contoling the drone using joystick)
+4) pygame (for controling the drone using joystick)
 5) tkinter (for minimal GUI)
 # how to run:
 simplay run the file: run_me.py
 # what's in this repository:
 the scripts are orgnized in folders:
 1) camera - all the scripts that hendle reciving and displaying the images from the camera
-2)
+2) control - all the scripts that hendle the movment of the drone
+3) general - general scripst such: displaying minimal GUI
+4) Sniffes - sniffes of the communication between the drone and it's custum app 
+
