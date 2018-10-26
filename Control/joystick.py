@@ -5,7 +5,7 @@ class Joystick:
     def __init__(self,left_right_clip_val,forward_backwards_clip_val,rotate_clip_val,up_down_clip_val):
         pygame.init()
         pygame.joystick.init()
-        self.joystick = pygame.joystick.Joystick(0)
+        self.joystick = pygame.joystick.Joystick(0) # TODO: throw error if no joystick was found
         self.joystick.init()
         self.clip_val={AxisIndex.LEFT_RIGHT:left_right_clip_val,
                        AxisIndex.FORWARD_BACKWARDS:forward_backwards_clip_val,
