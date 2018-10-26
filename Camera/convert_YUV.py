@@ -24,6 +24,4 @@ def YUV_to_RGB(byteArray): # the format is I420
     return RGBMatrix
 
 def YUV_to_gray(byteArray):
-    Y = byteArray[0:921600] # 1280 * 720 = 921600
-    Y = np.reshape(Y, (720, 1280))
-    return Y
+    return np.reshape(byteArray[0:921600], (720, 1280)) # 1280 * 720 = 921600
