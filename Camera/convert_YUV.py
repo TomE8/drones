@@ -21,3 +21,9 @@ def YUV_to_RGB(byteArray): # the format is I420
     RGBMatrix = (np.dstack([Y, U, V])).astype(np.uint8)
     RGBMatrix = cv2.cvtColor(RGBMatrix, cv2.COLOR_YUV2RGB, 3)
     return RGBMatrix
+
+def YUV_to_gray(byteArray):
+    e = 1280 * 720
+    Y = byteArray[0:e]
+    Y = np.reshape(Y, (720, 1280))
+    return Y
