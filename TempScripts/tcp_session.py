@@ -20,8 +20,8 @@ import time
 #     while(1):
 #         try:
 #             data = TCP_sock.recv(BUFFER_SIZE)
-#             sys.stdout.buffer.write(data)
-#             # src.emit("push-buffer", Gst.Buffer.new_wrapped(data))
+#             # sys.stdout.buffer.write(data)
+#             src.emit("push-buffer", Gst.Buffer.new_wrapped(data))
 #         except ValueError:
 #             print(ValueError)
 #             break
