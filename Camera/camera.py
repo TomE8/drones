@@ -10,10 +10,9 @@ class Camera():
     def __init__(self):
         pipeline, self.sink = create_gstreamer_pipe()
         ret = pipeline.set_state(Gst.State.PLAYING)  # TODO: print this value to the LOG file
-        self.RGB_image = []
-        self.gray_image = []
-        self.update_RGB_image()
-        self.get_gray_image()
+        buffer = bytearray(self.__get_buffer())
+        self.RGB_image = YUV_to_RGB(buffer)
+        self.gray_image = YUV_to_gray(buffer)
 
     def __get_buffer(self):
         sample = self.sink.emit("pull-sample")
