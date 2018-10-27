@@ -23,7 +23,7 @@ class Joystick:
     def get_button_val(self,button_index):
         return self.joystick.get_button(button_index) - self.prev_button_val.get(button_index)
 
-    def __del__(self): # destructor
+    def __del__(self):  # destructor
         pygame.quit()
 
     @staticmethod
