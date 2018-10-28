@@ -16,6 +16,6 @@ The JJRC H47 ELFIE+ is a cheap drone with on-board colored camera. The code in t
 the scripts are orgnized in folders:
 1) camera - all the scripts that hendle reciving and displaying the images from the camera
 2) control - all the scripts that hendle the movment of the drone
-3) general - general scripst such: displaying minimal GUI
-4) sniffes - sniffes of the communication between the drone and it's custum app 
+3) general - general scripst such: displaying minimal GUI and state machin of the program
+4) sniffes - examples for sniffes of the communication between the drone and it's custom app 
 
