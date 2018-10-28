@@ -9,8 +9,8 @@ class CommandCenter():
         self.UDP_PORT = 8080
         self.sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # UDP
 
-    def __send_to_drone(self,up_down, rotate, foward_backwards, left_right, byte6, byte7, byte8, byte9):
-        command = bytearray([255, 8, up_down, rotate, foward_backwards, left_right, byte6, byte7, byte8, byte9])
+    def __send_to_drone(self, up_down, rotate, forward_backwards, left_right, byte6, byte7, byte8, byte9):
+        command = bytearray([255, 8, up_down, rotate, forward_backwards, left_right, byte6, byte7, byte8, byte9])
         command.extend([255 - sum(command[1:]) % 256])  # check sum
         self.sock.sendto(command, (self.UDP_IP, self.UDP_PORT))
 
