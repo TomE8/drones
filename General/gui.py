@@ -5,7 +5,7 @@ from .general_common import States
 class Screen():
     def __init__(self):
         self.root = Tk()
-        self.canvas = Canvas(self.root, height = 210, width = 150)
+        self.canvas = Canvas(self.root, height = 260, width = 150)
         self.states_rec = {}
         self.states_rec[States.IDLE] = self.canvas.create_rectangle(10, 10, 140, 50, fill="#C2B6BF")
         self.canvas.create_text((70, 30), text="IDLE")
@@ -13,8 +13,10 @@ class Screen():
         self.canvas.create_text((75, 80), text="STAND-BY")
         self.states_rec[States.MANUAL_CONTROL] = self.canvas.create_rectangle(10, 110, 140, 150, fill="#C2B6BF")
         self.canvas.create_text((75, 130), text="MANUAL-CONTROL")
-        self.states_rec[States.STOP] = self.canvas.create_rectangle(10, 160, 140, 200, fill="#C2B6BF")
-        self.canvas.create_text((70, 180), text="STOP")
+        self.states_rec[States.HOVERING] = self.canvas.create_rectangle(10, 160, 140, 200, fill="#C2B6BF")
+        self.canvas.create_text((70, 180), text="HOVERING")
+        self.states_rec[States.STOP] = self.canvas.create_rectangle(10, 210, 140, 250, fill="#C2B6BF")
+        self.canvas.create_text((70, 230), text="STOP")
         self.canvas.pack()
         self.root.update()
 

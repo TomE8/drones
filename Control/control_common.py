@@ -8,4 +8,8 @@ class AxisIndex(): #TODO: read this value from config file
 class ButtonIndex():
     TRIGGER = 0
     SIDE_BUTTON = 1
+    HOVERING = 2
     EXIT = 10
+
+class ThresHold():
+    SENDING_TIME = 0.5

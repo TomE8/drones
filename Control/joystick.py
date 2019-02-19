@@ -11,7 +11,7 @@ class Joystick:
                        AxisIndex.FORWARD_BACKWARDS:forward_backwards_clip_val,
                        AxisIndex.ROTATE:rotate_clip_val,
                        AxisIndex.UP_DOWN:up_down_clip_val}
-        self.button_list=[ButtonIndex.EXIT,ButtonIndex.SIDE_BUTTON,ButtonIndex.TRIGGER] # TODO: read these values automaticly
+        self.button_list=[ButtonIndex.EXIT,ButtonIndex.SIDE_BUTTON,ButtonIndex.TRIGGER, ButtonIndex.HOVERING] # TODO: read these values automaticly
         self.prev_button_val = {}
         for button in self.button_list:
             self.prev_button_val[button]=0
