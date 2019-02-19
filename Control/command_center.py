@@ -16,6 +16,9 @@ class CommandCenter():
     def __send_to_drone(self, up_down, rotate, forward_backwards, left_right, byte6, byte7, byte8, byte9):
         current_time = time.time()
         current_command_hash = hash((up_down, rotate, forward_backwards, left_right))
+        # we will send a massage if:
+        # 1) it has been ThresHold.SENDING_TIME seconds from the last message
+        # 2) the new message is not as the one sent before
         if (current_time - self.prev_time) > ThresHold.SENDING_TIME or current_command_hash != self.prev_command_hash:
             command = bytearray([255, 8, up_down, rotate, forward_backwards, left_right, byte6, byte7, byte8, byte9])
             command.extend([255 - sum(command[1:]) % 256])  # check sum
@@ -35,7 +38,7 @@ class CommandCenter():
             left_right = 63 + int(my_joystick.get_axis_val(AxisIndex.LEFT_RIGHT) * 63)
             self.__send_to_drone(up_down, rotate, forward_backwards, left_right, 144, 16, 16, 0)
         elif state == States.HOVERING:
-            self.__send_to_drone(190, 63, 64, 63, 144, 16, 16, 0) # hovering
+            self.__send_to_drone(160, 63, 64, 63, 144, 16, 16, 0)  # hovering
         if state == States.STOP or state == States.STOP_BEFORE_EXIT:
             self.__send_to_drone(126, 63, 64, 63, 144, 16, 16, 160)  # stop
 
