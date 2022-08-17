@@ -1,14 +1,12 @@
 # drones
-The JJRC H47 ELFIE+ is a cheap drone with on-board colored camera. The code in the repository allowes to fully control the movment of the drone using a joystick, and receive the image from the drone's camera as a python object (which can be used for image-prosessing). The code is written in python 3 and tested on Ubunto 16.04.
-
-![alt text](https://images.app.goo.gl/CGVM8bARpmA2oyYc8)
+The JJRC H47 ELFIE+ is a cheap drone with on-board colored camera. The code in the repository allowes to fully control the movment of the drone using a joystick, and to receive the image from the drone's camera as a python object (which can be used for image-prosessing). The code is written in python 3 and tested on Ubunto 16.04.
 
 # needed-packages:
 1) opencv
 2) numpy
 3) gstreamer
-4) pygame (for controling the drone using joystick)
-5) tkinter (for minimal GUI)
+4) pygame - for controling the drone using joystick
+5) tkinter - for minimal GUI
 # how to run:
 1) connect to the wifi network of your drone
 2) run the file: run_me.py
